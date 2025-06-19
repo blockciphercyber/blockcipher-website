@@ -1,0 +1,152 @@
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #000;
+  font-family: 'Courier New', Courier, monospace;
+  color: #f00;
+  text-align: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  position: relative;
+  z-index: 1;
+  overflow-x: hidden;
+}
+
+.logo-bg {
+  background-image: url('logo.png');
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 0.04;
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+
+.container {
+  padding: 40px 20px;
+  position: relative;
+  z-index: 2;
+}
+
+.glitch {
+  font-size: 3.5em;
+  position: relative;
+  color: #f00;
+  animation: flicker 1s infinite;
+}
+
+.glitch::before,
+.glitch::after {
+  content: attr(data-text);
+  position: absolute;
+  left: 0;
+  width: 100%;
+  color: #f00;
+  background: #000;
+  overflow: hidden;
+  clip: rect(0, 900px, 0, 0);
+}
+
+.glitch::before {
+  animation: glitchTop 1s infinite linear alternate-reverse;
+}
+
+.glitch::after {
+  animation: glitchBottom 1s infinite linear alternate-reverse;
+}
+
+.tagline {
+  font-size: 1.2em;
+  margin-top: 10px;
+  margin-bottom: 30px;
+  color: #ccc;
+}
+
+.video-wrapper {
+  max-width: 100%;
+  margin: 20px auto;
+}
+
+video {
+  width: 100%;
+  max-width: 600px;
+  border: 2px solid red;
+  border-radius: 8px;
+}
+
+.connect-title {
+  font-size: 2em;
+  color: #f00;
+  margin-top: 60px;
+  margin-bottom: 20px;
+  text-shadow: 0 0 10px #f00;
+}
+
+.socials {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+}
+
+.socials a {
+  display: inline-block;
+  color: #f00;
+  background: #111;
+  border: 1px solid red;
+  padding: 10px 20px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: all 0.2s ease;
+}
+
+.socials a:hover {
+  color: #fff;
+  background-color: #f00;
+  border-color: #fff;
+}
+
+/* Glitch animation */
+@keyframes glitchTop {
+  0% {
+    clip: rect(0, 9999px, 0, 0);
+  }
+  50% {
+    clip: rect(0, 9999px, 50px, 0);
+    transform: translate(-2px, -2px);
+  }
+  100% {
+    clip: rect(0, 9999px, 0, 0);
+    transform: none;
+  }
+}
+
+@keyframes glitchBottom {
+  0% {
+    clip: rect(0, 9999px, 0, 0);
+  }
+  50% {
+    clip: rect(50px, 9999px, 9999px, 0);
+    transform: translate(2px, 2px);
+  }
+  100% {
+    clip: rect(0, 9999px, 0, 0);
+    transform: none;
+  }
+}
+
+@keyframes flicker {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.6;
+  }
+}
