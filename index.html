@@ -27,21 +27,21 @@
     </div>
   </div>
 
-  <!-- 🔊 Typing Sound -->
-  <audio autoplay loop muted id="typingSound">
+  <!-- Typing Sound -->
+  <audio id="typing" autoplay loop muted>
     <source src="typing.mp3" type="audio/mpeg">
   </audio>
 
-  <!-- 🎵 Background Music -->
-  <audio autoplay loop muted id="bgMusic">
+  <!-- Background Sound -->
+  <audio id="bg" autoplay loop muted>
     <source src="bgmusic.mp3" type="audio/mpeg">
   </audio>
 
+  <!-- Unmute on click -->
   <script>
-    // Unmute after user clicks anywhere
     document.addEventListener('click', () => {
-      document.getElementById('typingSound').muted = false;
-      document.getElementById('bgMusic').muted = false;
+      document.getElementById('typing').muted = false;
+      document.getElementById('bg').muted = false;
     });
   </script>
 
