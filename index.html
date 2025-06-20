@@ -1,4 +1,4 @@
-!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -28,17 +28,22 @@
   </div>
 
   <!-- 🔊 Typing Sound -->
-  <audio autoplay loop>
+  <audio autoplay loop muted id="typingSound">
     <source src="typing.mp3" type="audio/mpeg">
-    Your browser does not support the typing sound.
   </audio>
 
   <!-- 🎵 Background Music -->
-  <audio autoplay loop>
+  <audio autoplay loop muted id="bgMusic">
     <source src="bgmusic.mp3" type="audio/mpeg">
-    Your browser does not support the background music.
   </audio>
+
+  <script>
+    // Unmute after user clicks anywhere
+    document.addEventListener('click', () => {
+      document.getElementById('typingSound').muted = false;
+      document.getElementById('bgMusic').muted = false;
+    });
+  </script>
 
 </body>
 </html>
-
